@@ -2,8 +2,23 @@
 
 using namespace std;
 
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        int n = numRows;
+        vector<vector<int>> triangle;
+        for(int i = 0; i<n; i++){
+            vector<int> temp(i+1, 1);
+            for(int j = 1; j<i; j++){
+                temp[j] = triangle[i-1][j] + triangle[i-1][j-1];  
+            }
+            triangle.push_back(temp);
+        }
+        return triangle;
+    }
 
-signed main(){
-    vector<int> a = {1,3,2};
-    cout << next_permutation(a, 1);
+        
+};
+int main(){
+    
 }
